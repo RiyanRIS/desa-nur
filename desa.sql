@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Apr 05, 2022 at 08:18 AM
--- Server version: 5.7.36
--- PHP Version: 7.2.34
+-- Host: localhost:3306
+-- Generation Time: Apr 17, 2022 at 11:53 AM
+-- Server version: 8.0.28-0ubuntu0.20.04.3
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -27,16 +28,14 @@ SET time_zone = "+00:00";
 -- Table structure for table `account`
 --
 
-DROP TABLE IF EXISTS `account`;
-CREATE TABLE IF NOT EXISTS `account` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `groups_id` int(11) DEFAULT '3',
+CREATE TABLE `account` (
+  `id` int NOT NULL,
+  `groups_id` int DEFAULT '3',
   `name` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
   `password` text NOT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `account`
@@ -51,14 +50,12 @@ INSERT INTO `account` (`id`, `groups_id`, `name`, `email`, `password`, `tanggal`
 -- Table structure for table `jadwal_kegiatan`
 --
 
-DROP TABLE IF EXISTS `jadwal_kegiatan`;
-CREATE TABLE IF NOT EXISTS `jadwal_kegiatan` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `jadwal_kegiatan` (
+  `id` int NOT NULL,
   `nama_kegiatan` text NOT NULL,
   `detail_kegiatan` text NOT NULL,
-  `tanggal` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `jadwal_kegiatan`
@@ -74,14 +71,12 @@ INSERT INTO `jadwal_kegiatan` (`id`, `nama_kegiatan`, `detail_kegiatan`, `tangga
 -- Table structure for table `pegawai`
 --
 
-DROP TABLE IF EXISTS `pegawai`;
-CREATE TABLE IF NOT EXISTS `pegawai` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pegawai` (
+  `id` int NOT NULL,
   `nama` varchar(50) NOT NULL,
   `alamat` text NOT NULL,
-  `jabatan` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `jabatan` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pegawai`
@@ -98,25 +93,19 @@ INSERT INTO `pegawai` (`id`, `nama`, `alamat`, `jabatan`) VALUES
 -- Table structure for table `pengumuman`
 --
 
-DROP TABLE IF EXISTS `pengumuman`;
-CREATE TABLE IF NOT EXISTS `pengumuman` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pengumuman` (
+  `id` int NOT NULL,
   `judul` varchar(300) NOT NULL,
   `file` text NOT NULL,
-  `tanggal` date NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+  `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pengumuman`
 --
 
 INSERT INTO `pengumuman` (`id`, `judul`, `file`, `tanggal`) VALUES
-(7, 'laporan', 'QC_Rev.png', '2022-02-09'),
-(8, 'wefewf', 'Screenshot_at_2022-01-11_20-12-37.png', '2022-02-02'),
-(9, 'Testing', 'pemesan.png', '2022-02-13'),
-(10, 'Pengumuman Tahun baru', 'pemilikusaha.png', '2022-02-03'),
-(11, 'Ulang Tahun Nur wahida ', 'pemesan1.png', '2022-02-13');
+(12, 'Pemilihan Presiden dan Wakil Presiden Mahasiswa', 'stiker.png', '2022-04-16');
 
 -- --------------------------------------------------------
 
@@ -124,18 +113,16 @@ INSERT INTO `pengumuman` (`id`, `judul`, `file`, `tanggal`) VALUES
 -- Table structure for table `pengunjung`
 --
 
-DROP TABLE IF EXISTS `pengunjung`;
-CREATE TABLE IF NOT EXISTS `pengunjung` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pengunjung` (
+  `id` int NOT NULL,
   `ip` varchar(50) NOT NULL,
   `cookies` varchar(200) NOT NULL,
   `nama` varchar(200) NOT NULL,
   `email` varchar(200) NOT NULL,
   `pesan` text NOT NULL,
   `dibaca` tinyint(1) NOT NULL DEFAULT '0',
-  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `pengunjung`
@@ -153,13 +140,11 @@ INSERT INTO `pengunjung` (`id`, `ip`, `cookies`, `nama`, `email`, `pesan`, `diba
 -- Table structure for table `settings`
 --
 
-DROP TABLE IF EXISTS `settings`;
-CREATE TABLE IF NOT EXISTS `settings` (
-  `id` int(11) NOT NULL,
+CREATE TABLE `settings` (
+  `id` int NOT NULL,
   `type` varchar(100) NOT NULL,
   `content` text NOT NULL,
-  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`)
+  `tanggal` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -179,6 +164,80 @@ INSERT INTO `settings` (`id`, `type`, `content`, `tanggal`) VALUES
 (13, 'phone', '087757308735', '2019-09-15 23:25:24'),
 (14, 'address', 'Jalan sumbawa,  desa madaprama, dusun madalibi, kecamatan Woja', '2019-09-15 23:25:35'),
 (15, 'map', 'Desa Madaprama', '2019-09-15 23:25:35');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `account`
+--
+ALTER TABLE `account`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `jadwal_kegiatan`
+--
+ALTER TABLE `jadwal_kegiatan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pengumuman`
+--
+ALTER TABLE `pengumuman`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `pengunjung`
+--
+ALTER TABLE `pengunjung`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `account`
+--
+ALTER TABLE `account`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `jadwal_kegiatan`
+--
+ALTER TABLE `jadwal_kegiatan`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT for table `pegawai`
+--
+ALTER TABLE `pegawai`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `pengumuman`
+--
+ALTER TABLE `pengumuman`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT for table `pengunjung`
+--
+ALTER TABLE `pengunjung`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

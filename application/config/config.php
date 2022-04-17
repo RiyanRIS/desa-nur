@@ -30,7 +30,6 @@ $url_path = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : 
 $url_path .= $_SERVER['SERVER_NAME']."";
 $url_path .= str_replace("index.php", "", $_SERVER['SCRIPT_NAME']);
 
-
 $config['frontend'] = $url_path.'assets/frontend/';
 $config['backend'] = $url_path.'assets/backend/';
 $config['admin_url'] = "backend";
@@ -149,7 +148,7 @@ $config['subclass_prefix'] = 'MY_';
 | Note: This will NOT disable or override the CodeIgniter-specific
 |	autoloading (application/config/autoload.php)
 */
-$config['composer_autoload'] = FALSE;
+$config['composer_autoload'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
