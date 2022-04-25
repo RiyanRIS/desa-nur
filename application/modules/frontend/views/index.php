@@ -33,7 +33,7 @@
         </div>
     </section>
 
-    <section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb mb-5" id="struktur" data-section="struktur">
+    <!-- <section class="ftco-counter img ftco-section ftco-no-pt ftco-no-pb mb-5" id="struktur" data-section="struktur">
         <div class="container">
             <div class="row d-flex">
                 <div class="col-md-12 mt-5">
@@ -63,4 +63,4 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
