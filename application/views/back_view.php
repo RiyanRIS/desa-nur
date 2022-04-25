@@ -119,6 +119,14 @@
         </a>
       </li>
 
+       <!-- Nav Item - Jabatan -->
+       <li class="nav-item <?= ($this->uri->segment(2) == 'jabatan' ? 'active':'')?>">
+        <a class="nav-link" href="<?= backend_url('jabatan')?>">
+          <i class="fa fa-fw fa-bookmark"></i>
+          <span>Jabatan</span>
+        </a>
+      </li>
+
       <!-- Nav Item - Pengumuman -->
       <li class="nav-item <?= ($this->uri->segment(2) == 'pengumuman' ? 'active':'')?>">
         <a class="nav-link" href="<?= backend_url('pengumuman')?>">

@@ -12,8 +12,8 @@ class Pegawai extends MY_Controller {
 	public function index()
 	{	
         if(isset($GLOBALS['auth'])){
-			$data['data'] = $this->umum->get_data($this->table);
-			
+			$data['data'] = $this->umum->query("SELECT a.*, b.nama nama_jabatan FROM `pegawai` a JOIN `jabatan` b ON a.jabatan = b.id");
+
 			$data['button'] = '<a href="'.backend_url('pegawai/add').'" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Tambah</a>';
 			$data['subtitle'] = 'Daftar pegawai di Desa Madaprama';
 			$data['content'] = 'pegawai/index';
@@ -25,7 +25,8 @@ class Pegawai extends MY_Controller {
 
 	public function add()
 	{	
-		$data['jabatan'] = $this->jabatan;
+		// $data['jabatan'] = $this->jabatan;
+		$data['jabatan'] = $this->umum->get_data('jabatan');
 		$data['content'] = 'pegawai/add';
 		$this->load($data);
 	}
@@ -34,7 +35,7 @@ class Pegawai extends MY_Controller {
 	{	
 		$id = $this->urlcrypt->decode($this->uri->segment(4));
 		$data['data'] = $this->umum->get_row($this->table,['id' => $id]);
-		$data['jabatan'] = $this->jabatan;
+		$data['jabatan'] = $this->umum->get_data('jabatan');
 
 		// if(!$data['data']) redirect(backend_url('notfound'));
 		if(!$data['data']) $data['content'] = '404';

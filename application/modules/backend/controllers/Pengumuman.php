@@ -72,6 +72,8 @@ class Pengumuman extends MY_Controller {
     	$data = array(
     	    'tanggal' 	=> $this->input->post('tanggal'),
     	    'judul' 	=> $this->input->post('judul'),
+					'konten' 	=> $this->input->post('konten'),
+					'video' 	=> str_replace("watch?v=","embed/",$this->input->post('video')),
     	);
 
 		if ($this->upload->do_upload('file')){
@@ -110,10 +112,12 @@ class Pengumuman extends MY_Controller {
 
 		$old = $this->umum->get_row('pengumuman',['id' => $id],'file');
 
-    	$data = array(
-    	    'tanggal' 	=> $this->input->post('tanggal'),
-    	    'judul' 	=> $this->input->post('judul'),
-    	);
+		$data = array(
+				'tanggal' 	=> $this->input->post('tanggal'),
+				'judul' 	=> $this->input->post('judul'),
+				'konten' 	=> $this->input->post('konten'),
+				'video' 	=> str_replace("watch?v=","embed/",$this->input->post('video')),
+		);
 
 		if ($this->upload->do_upload('file')){
 			$file = $this->upload->data();
@@ -121,9 +125,9 @@ class Pengumuman extends MY_Controller {
 			else $data['file'] = $file['file_name'];
 		}
 
-        $this->umum->edit_dml($this->table,$data,['id' => $id],false);
-        $this->session->set_flashdata('success_message', 'Data berhasil dirubah!');
-        redirect(backend_url('pengumuman/edit/'.$sid));
+		$this->umum->edit_dml($this->table,$data,['id' => $id],false);
+		$this->session->set_flashdata('success_message', 'Data berhasil dirubah!');
+		redirect(backend_url('pengumuman/edit/'.$sid));
 	}
 
 	public function deleteAction(){

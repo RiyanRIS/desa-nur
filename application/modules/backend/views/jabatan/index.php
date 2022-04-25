@@ -9,8 +9,7 @@
                 <thead>
                     <tr>
                         <th width="200px">Nama</th>
-                        <th width="200px">Jabatan</th>
-                        <th>Alamat</th>
+                        <th width="200px">Tugas</th>
                         <th class="text-center" width="150px">Action</th>
                     </tr>
                 </thead>
@@ -18,10 +17,9 @@
                     <?php foreach($data as $e){ ?>
                         <tr>
                             <td><?= $e['nama']?></td>
-                            <td><?= $e['nama_jabatan']?></td>
-                            <td><?= $e['alamat']?></td>
+                            <td><?= $e['tugas']?></td>
                             <td class="text-center">
-                                <a href="<?= backend_url('pegawai/edit/'.$this->urlcrypt->encode($e['id']))?>" class="btn btn-warning">Edit</a>
+                                <a href="<?= backend_url('jabatan/edit/'.$this->urlcrypt->encode($e['id']))?>" class="btn btn-warning">Edit</a>
                                 <a href="javascript:void(0)" data-id="<?= $this->urlcrypt->encode($e['id'])?>" data-nama="<?= $e['nama']?>" class="btn btn-danger btn-delete">Delete</a>
                             </td>
                         </tr>
@@ -50,7 +48,7 @@ $(".btn-delete").on("click",function(){
         if(result.value != null){
             $.ajax({
                   type: "POST",
-                  url: "<?= backend_url('pegawai/deleteAction')?>",
+                  url: "<?= backend_url('jabatan/deleteAction')?>",
                   data:{ id },
                   beforeSend: function(e){
                     $(".loading").show();
@@ -61,7 +59,7 @@ $(".btn-delete").on("click",function(){
                       $(".loading").hide();
                       
                       sleep(800).then(() => { 
-                        window.location.href = "<?= backend_url('pegawai')?>";
+                        window.location.href = "<?= backend_url('jabatan')?>";
                       });    
                     });    
                   },

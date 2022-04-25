@@ -81,6 +81,7 @@ $db['default'] = array(
 	// 'username' => 'riyanris',
 	// 'password' => '1234',
 	// 'database' => 'desa',
+	// mysql -u b9b93291d7ad44 -p -h us-cdbr-east-05.cleardb.net -D heroku_6517ce6faa4639d
 	'hostname' => 'us-cdbr-east-05.cleardb.net',
 	'username' => 'b9b93291d7ad44',
 	'password' => 'ad9ccb3d',

@@ -15,6 +15,15 @@ class Kegiatan extends MY_Controller {
 		$this->view($data);
 	}
 
+	public function detail()	
+	{	
+		$id = $this->uri->segment(3);
+		$data['data']['kegiatans'] = $this->umum->get_row('jadwal_kegiatan',['id' => $id]);
+
+		$data['content'] = 'detail_kegiatan';
+		$this->view($data);
+	}
+
 }
 
 /* End of file Pengumuman.php */

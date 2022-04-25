@@ -72,4 +72,11 @@ class Umum extends CI_Model
         return true;
     }
 
+		function query($sql)
+		{
+			$query = $this->db->query($sql);
+			return $query->result_array();
+
+		}
+
 }

@@ -15,9 +15,9 @@
               <label>Jabatan</label>
               <select  name="jabatan" id="jabatan" class="form-control select2" style="width: 100%;" <?= $id ? 'readonly' : '' ?> required>
                 <?php 
-                  if($jabatan) foreach($jabatan as $key => $val){
-                    $slct = (isset($data['jabatan']) && $data['jabatan']==$val) ? 'selected' : '';
-                    echo "<option value='".$val."' $slct  >".$val.   "</option>";
+                  if($jabatan) foreach($jabatan as $key){
+                    $slct = (isset($data['jabatan']) && $data['jabatan']==$key['id']) ? 'selected' : '';
+                    echo "<option value='".$key['id']."' $slct  >".$key['nama'].   "</option>";
                   }
                 ?>
               </select> 

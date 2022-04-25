@@ -4,39 +4,41 @@
         <div class="container">
             <div class="row no-gutters slider-text align-items-end justify-content-center">
                 <div class="col-md-9 ftco-animate pb-5 text-center">
-                    <h1 class="mb-3 bread">Jadwal Kegiatan</h1>
+                    <h1 class="mb-3 bread">Struktur Organisasi</h1>
                     <p class="breadcrumbs">
                         <span class="mr-2">
                             <a href="<?= base_url()?>">Home</a>
                         </span>
                         <span><i class="ion-ios-arrow-forward"></i></span>
-                        <span>Jadwal Kegiatan</span>
+                        <span>Struktur Organisasi</span>
                     </p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="ftco-section mb-5 mt-5">
+    <section class="ftco-section">
         <div class="container">
             <div class="col-lg-12 ftco-animate">
-                <div class="row">
+                 <h2 class="mb-4">Struktur Kepengurusan</h2>
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>TANGGAL</th>
-                                <th>NAMA KEGIATAN</th>
+                                <th>NO</th>
+                                <th>NAMA</th>
+                                <th>JABATAN</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $kegiatans = $data['kegiatans'];
+                            $pegawais = $data['pegawais'];
                             $no = 1;
-                            foreach($kegiatans as $kegiatan):
+                            foreach($pegawais as $pegawai):
                             ?>
                             <tr>
-                                <td><?= date("d F Y", strtotime($kegiatan['tanggal'])) ?></td>
-                                <td><a href="<?= site_url("kegiatan/detail/".$kegiatan['id']) ?>"><?= $kegiatan['nama_kegiatan'] ?></a></td>
+                                <td><?= $no++ ?></td>
+                                <td><?= $pegawai['nama'] ?></td>
+                                <td><a href="<?= base_url("struktur/detail_jabatan/" . $pegawai['id']) ?>"><?= $pegawai['nama_jabatan'] ?></a></td>
                             </tr>
                             <?php endforeach; ?>
                         </tbody>

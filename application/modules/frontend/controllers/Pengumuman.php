@@ -18,6 +18,16 @@ class Pengumuman extends MY_Controller {
 		$this->view($data);
 	}
 
+	public function detail()	
+	{	
+		$id = $this->uri->segment(3);
+		$data['data']['pengumuman'] = $this->umum->get_row('pengumuman',['id' => $id]);
+
+		$data['content'] = 'detail_pengumuman';
+		$this->view($data);
+	}
+
+
 }
 
 /* End of file Pengumuman.php */

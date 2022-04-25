@@ -48,6 +48,8 @@
                         <li class="nav-item"><a href="#about" class="nav-link" data-nav-section="about"><span>About</span></a>
                         </li>
                     <?php } ?>
+                    <li class="nav-item"><a href="#" class="nav-link" onclick="window.location.assign('<?= base_url()?>struktur')"><span>Struktur Organisasi</span></a>
+                    </li>
                     <li class="nav-item"><a href="#" class="nav-link" onclick="window.location.assign('<?= base_url()?>pengumuman')"><span>Pengumuman</span></a>
                     </li>
                     <li class="nav-item"><a href="#" class="nav-link" onclick="window.location.assign('<?= base_url()?>kegiatan')"><span>Jadwal Kegiatan</span></a>

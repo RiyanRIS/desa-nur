@@ -16,6 +16,14 @@
               <input type="text" id="judul" name="judul" class="form-control" placeholder="Judul" value="<?= set_value('judul') ?>" required>
             </div>
             <div class="form-group">
+              <label>Konten</label>
+              <textarea name="konten" id="konten" cols="30" rows="10" class="form-control"><?= set_value('konten') ?></textarea>
+            </div>
+            <div class="form-group">
+              <label>Video Youtube</label>
+              <input type="text" id="video" name="video" class="form-control" placeholder="Video youtube" value="<?= set_value('video') ?>">
+            </div>
+            <div class="form-group">
               <label>File</label>
               <input type="file" id="file" name="file" class="form-control" placeholder="Gambar" value="<?= set_value('file') ?>">
             </div>
