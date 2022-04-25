@@ -30,7 +30,7 @@ $url_path = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : 
 $url_path .= $_SERVER['SERVER_NAME']."";
 $url_path .= str_replace("index.php", "", $_SERVER['SCRIPT_NAME']);
 
-$url_path = 'https://desamadaprama.herokuapp.com/';
+// $url_path = 'https://desamadaprama.herokuapp.com/';
 
 $config['frontend'] = $url_path.'assets/frontend/';
 $config['backend'] = $url_path.'assets/backend/';

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Apr 17, 2022 at 11:53 AM
+-- Generation Time: Apr 25, 2022 at 03:39 PM
 -- Server version: 8.0.28-0ubuntu0.20.04.3
 -- PHP Version: 7.4.3
 
@@ -47,6 +47,26 @@ INSERT INTO `account` (`id`, `groups_id`, `name`, `email`, `password`, `tanggal`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `jabatan`
+--
+
+CREATE TABLE `jabatan` (
+  `id` int NOT NULL,
+  `nama` varchar(64) NOT NULL,
+  `tugas` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `jabatan`
+--
+
+INSERT INTO `jabatan` (`id`, `nama`, `tugas`) VALUES
+(1, 'Kepala Desa', 'Memberi pengarahan kepada perangkat desa'),
+(3, 'Sekretaris', 'Surat menyurat');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `jadwal_kegiatan`
 --
 
@@ -83,9 +103,10 @@ CREATE TABLE `pegawai` (
 --
 
 INSERT INTO `pegawai` (`id`, `nama`, `alamat`, `jabatan`) VALUES
-(9, 'NurWahida', 'Dompu', 'Staff'),
-(10, 'Saodah', '0', 'Staff'),
-(11, 'tj', '0123', 'Kepala Desa');
+(9, 'NurWahida', 'Dompu', '3'),
+(10, 'Saodah', '0', '1'),
+(11, 'tj', '0123', '1'),
+(12, 'Pegawai satu', 'Iya', '1');
 
 -- --------------------------------------------------------
 
@@ -96,6 +117,8 @@ INSERT INTO `pegawai` (`id`, `nama`, `alamat`, `jabatan`) VALUES
 CREATE TABLE `pengumuman` (
   `id` int NOT NULL,
   `judul` varchar(300) NOT NULL,
+  `konten` text NOT NULL,
+  `video` varchar(255) NOT NULL,
   `file` text NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -104,8 +127,9 @@ CREATE TABLE `pengumuman` (
 -- Dumping data for table `pengumuman`
 --
 
-INSERT INTO `pengumuman` (`id`, `judul`, `file`, `tanggal`) VALUES
-(12, 'Pemilihan Presiden dan Wakil Presiden Mahasiswa', 'stiker.png', '2022-04-16');
+INSERT INTO `pengumuman` (`id`, `judul`, `konten`, `video`, `file`, `tanggal`) VALUES
+(12, 'Pemilihan Presiden dan Wakil Presiden Mahasiswa', 'ini kontennnss', 'https://www.youtube.com/embed/A6XUVjK9W4o', 'stiker.png', '2022-04-16'),
+(14, 'Ini Jufulnya', '2022-04-25T02:30:05.367627+00:00 heroku[router]: at=info method=GET path=\"/\" host=whatsapp-md.herokuapp.com request_id=36f6a7dd-c052-4183-91a9-e43ff043e1b6 fwd=\"116.203.129.16\" dyno=web.1 connect=0ms service=1ms status=200 bytes=501 protocol=https\r\n2022-04-25T02:30:22.777195+00:00 app[web.1]: [ PESAN ] Mon Apr 25 2022 02:30:22 GMT+0000 (Coordinated Universal Time) messageContextInfo\r\n2022-04-25T02:30:22.777203+00:00 app[web.1]: => Dari Sindu Probokusumo 6285213063898@s.whatsapp.net\r\n2022-04-25T02:30:22.777204+00:00 app[web.1]: => Di Private Chat 6285213063898@s.whatsapp.net\r\n2022-04-25T02:30:33.349338+00:00 app[web.1]: [ PESAN ] Mon Apr 25 2022 02:30:33 GMT+0000 (Coordinated Universal Time) imageMessage\r\n2022-04-25T02:30:33.349348+00:00 app[web.1]: => Dari Jasmine 62816407191@s.whatsapp.net\r\n2022-04-25T02:30:33.349348+00:00 app[web.1]: => Di Private Chat 62816407191@s.whatsapp.net\r\n2022-04-25T02:30:36.241357+00:00 app[web.1]: [ PESAN ] Mon Apr 25 2022 02:30:36 GMT+0000 (Coordinated Universal Time) https://twitter.com/ndagels/status/1518140319065247744?s=21&t=6FC77E3epcVXoWaxK3yi6w\r\n2022-04-25T02:30:36.241383+00:00 app[web.1]: => Dari Nanda Lubis 62895620678740@s.whatsapp.net\r\n2022-04-25T02:30:36.241384+00:00 app[web.1]: => Di Private Chat 62895620678740@s.whatsapp.net\r\n2022-04-25T02:30:41.222574+00:00 app[web.1]: [ PESAN ] Mon Apr 25 2022 02:30:41 GMT+0000 (Coordinated Universal Time) messageContextInfo\r\n2022-04-25T02:30:41.222583+00:00 app[web.1]: => Dari Nanda Lubis 62895620678740@s.whatsapp.net\r\n2022-04-25T02:30:41.222583+00:00 app[web.1]: => Di Private Chat 62895620678740@s.whatsapp.net', 'https://www.youtube.com/embed/ojNRfGNw18U', '', '2022-04-25');
 
 -- --------------------------------------------------------
 
@@ -176,6 +200,12 @@ ALTER TABLE `account`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `jabatan`
+--
+ALTER TABLE `jabatan`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `jadwal_kegiatan`
 --
 ALTER TABLE `jadwal_kegiatan`
@@ -216,6 +246,12 @@ ALTER TABLE `account`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `jabatan`
+--
+ALTER TABLE `jabatan`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `jadwal_kegiatan`
 --
 ALTER TABLE `jadwal_kegiatan`
@@ -225,13 +261,13 @@ ALTER TABLE `jadwal_kegiatan`
 -- AUTO_INCREMENT for table `pegawai`
 --
 ALTER TABLE `pegawai`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `pengumuman`
 --
 ALTER TABLE `pengumuman`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `pengunjung`
