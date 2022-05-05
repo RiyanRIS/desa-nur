@@ -6,3 +6,8 @@ Revisinya :
 5. Buat input jabatan organisasi(nama jabatan, deskripsi jabatan) [DONE]
 6. Buat setiap kegiatan bisa di klik mengarah ke detail kegiatan. [DONE]
 7. Pengumuman untuk menampilkan detail kegiatan yang sudah dilaksanakan berisi teks, gambar ataupun video. [DONE]
+
+*05 Mei 2022*
+1. Cek image upload di bagian pengumuman, ternyata ada aturan supaya bisa masuk.
+2. Perbaiki dibagian pengumuman jika pengumuman dihapus/kosong maka tidak muncul error.
+3. Perbaiki form detail jabatan menjadi besar

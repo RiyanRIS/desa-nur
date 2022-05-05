@@ -23,8 +23,12 @@ class Pengumuman extends MY_Controller {
 		$id = $this->uri->segment(3);
 		$data['data']['pengumuman'] = $this->umum->get_row('pengumuman',['id' => $id]);
 
-		$data['content'] = 'detail_pengumuman';
-		$this->view($data);
+		if(count($data['data']['pengumuman']) == 0){
+			echo "<h1>Data pengumuman telah dihapus atau diubah</h1>";
+		} else {
+			$data['content'] = 'detail_pengumuman';
+			$this->view($data);
+		}
 	}
 
 

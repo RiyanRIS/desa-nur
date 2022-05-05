@@ -13,7 +13,7 @@
             </div>
             <div class="form-group">
               <label>Tugas</label>
-              <input type="text" id="tugas" name="tugas" class="form-control" placeholder="Tugas Jabatan" value="<?= set_value('tugas') ?>" required>
+              <textarea name="tugas" class="form-control" value="<?= set_value('tugas') ?>" required></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-user btn-block">Tambahkan</button>
           </div>
