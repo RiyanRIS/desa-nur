@@ -25,7 +25,7 @@
             <?php } ?>
             <h1>Judul: <?= $data['pengumuman']['judul'] ?> </h1><br>
             <?= date("d F Y", strtotime($data['pengumuman']['tanggal'])) ?> <br>
-            <?= $data['pengumuman']['konten'] ?>
+            <?= $data['pengumuman']['konten'] ?> <br><br>
             <?php if(isset($data['pengumuman']['video']) && !empty($data['pengumuman']['video'])){ ?>
                 <iframe width="420" height="315"
                 src="<?= $data['pengumuman']['video'] ?>" frameborder="0" allowfullscreen>

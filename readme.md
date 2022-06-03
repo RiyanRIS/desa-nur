@@ -11,3 +11,7 @@ Revisinya :
 1. Cek image upload di bagian pengumuman, ternyata ada aturan supaya bisa masuk.
 2. Perbaiki dibagian pengumuman jika pengumuman dihapus/kosong maka tidak muncul error.
 3. Perbaiki form detail jabatan menjadi besar
+
+*21 Mei 2022*
+1. Hapus aturan width dan height image pada modul pengumuman.
+2. Memberi jarak pada halaman tampil pengumuman.(Konten dan video tidak menyatu)

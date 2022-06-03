@@ -10,8 +10,8 @@ class Pengumuman extends MY_Controller {
 		$config['upload_path']          = 'public/pengumuman';
 		$config['allowed_types']        = 'gif|jpg|png|jpeg';
 		$config['max_size']             = 10000; // maks 10mb
-		$config['max_width']            = 1024;
-		$config['max_height']           = 768;
+		// $config['max_width']            = 1024;
+		// $config['max_height']           = 768;
 		$this->load->library('upload', $config);
 	}
 
